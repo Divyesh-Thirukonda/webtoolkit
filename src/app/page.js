@@ -1,5 +1,7 @@
 // pages/index.js
 import Link from 'next/link';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons'; // Importing LinkedIn and GitHub icons
 
 export default function Home() {
   // Define toolkits and their tools programmatically
@@ -55,6 +57,31 @@ export default function Home() {
             </div>
           </div>
         ))}
+
+        {/* Developer Card */}
+        <div className="p-8 bg-white text-black shadow-lg rounded-lg mb-8">
+          <h2 className="text-2xl font-semibold mb-4">Meet The Dev</h2>
+          <div className="flex flex-col items-center mb-4">
+            <img
+              src="https://github.com/Divyesh-Thirukonda.png"
+              alt="Developer's Image"
+              className="rounded-full mb-4 w-36 h-36 object-cover"
+            />
+            <p className="text-xl font-semibold">Divyesh Thirukonda</p>
+          </div>
+          <p className="text-sm text-center mb-6">Let's connect!</p>
+          <div className="flex justify-center gap-6">
+            {/* LinkedIn Link */}
+            <Link href="https://www.linkedin.com/in/divyesh-thirukonda/" target="_blank">
+              <FontAwesomeIcon icon={faLinkedin} className="w-8 h-8 text-blue-700 hover:text-blue-800 transition" />
+            </Link>
+
+            {/* GitHub Link */}
+            <Link href="https://github.com/Divyesh-Thirukonda/webtoolkit" target="_blank">
+              <FontAwesomeIcon icon={faGithub} className="w-8 h-8 text-black hover:text-gray-700 transition" />
+            </Link>
+          </div>
+        </div>
       </div>
     </div>
   );
