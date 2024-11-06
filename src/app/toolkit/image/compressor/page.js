@@ -75,7 +75,7 @@ export default function ImageCompressor() {
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center py-12">
-      <h1 className="text-3xl font-bold mt-4">Custom Image Compression Tool</h1>
+      <h1 className="text-3xl font-bold mt-4 mb-4">Custom Image Compression Tool</h1>
 
       {!isUploaded && (
         <div className="mb-6">
