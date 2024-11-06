@@ -26,10 +26,8 @@ export default function Home() {
       name: "Image Toolkit",
       description: "Explore random tools for generating numbers and outcomes.",
       tools: [
-        { name: "Image Resizer", path: "/toolkit/image/resize" },
         { name: "Image Compressor", path: "/toolkit/image/compressor" },
         { name: "Image Cropper", path: "/toolkit/image/cropper" },
-        { name: "Image Format Converter", path: "/toolkit/image/format" },
         { name: "Image Background Remover", path: "/toolkit/image/background-remover" },
         { name: "Image Color Picker", path: "/toolkit/image/color-picker" },
         { name: "Image Text Adder", path: "/toolkit/image/text-added" },
