@@ -1,36 +1,122 @@
-"use client"
+"use client";
 
 import { useState } from 'react';
 import Link from 'next/link';
 
-export default function DiceRoller() {
-  const [diceNumber, setDiceNumber] = useState(null);
+export default function BinaryHexDecimalConverter() {
+  const [binary, setBinary] = useState('');
+  const [decimal, setDecimal] = useState('');
+  const [hex, setHex] = useState('');
+  const [inputType, setInputType] = useState('binary');
 
-  const rollDice = () => {
-    const randomNum = Math.floor(Math.random() * 6) + 1;
-    setDiceNumber(randomNum);
+  const convertValues = () => {
+    if (inputType === 'binary') {
+      const dec = parseInt(binary, 2);
+      const hexa = parseInt(binary, 2).toString(16).toUpperCase();
+      setDecimal(isNaN(dec) ? '' : dec.toString());
+      setHex(isNaN(hexa) ? '' : hexa);
+    } else if (inputType === 'decimal') {
+      const bin = parseInt(decimal).toString(2);
+      const hexa = parseInt(decimal).toString(16).toUpperCase();
+      setBinary(bin);
+      setHex(hexa);
+    } else if (inputType === 'hex') {
+      const dec = parseInt(hex, 16);
+      const bin = parseInt(hex, 16).toString(2);
+      setDecimal(isNaN(dec) ? '' : dec.toString());
+      setBinary(bin);
+    }
+  };
+
+  const handleInputChange = (e) => {
+    const value = e.target.value;
+    if (inputType === 'binary') {
+      setBinary(value);
+      convertValues();
+    } else if (inputType === 'decimal') {
+      setDecimal(value);
+      convertValues();
+    } else if (inputType === 'hex') {
+      setHex(value);
+      convertValues();
+    }
+  };
+
+  const handleInputTypeChange = (e) => {
+    setInputType(e.target.value);
+    setBinary('');
+    setDecimal('');
+    setHex('');
   };
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-between py-12">
-      {/* Title at the top center */}
-      <h1 className="text-3xl font-bold mt-4">Dice Roller</h1>
+      <h1 className="text-3xl font-bold mt-4">Binary, Hex, and Decimal Converter</h1>
 
-      {/* Main content in the center */}
-      <div className="flex flex-col items-center">
-        <button
-          onClick={rollDice}
-          className="px-6 py-3 bg-blue-500 font-semibold rounded-lg hover:bg-blue-600 transition"
+      <div>
+        <label className="text-lg font-semibold mb-2">Select Input Type: </label>
+        <select
+          value={inputType}
+          onChange={handleInputTypeChange}
+          className="mb-6 p-2 border rounded text-black"
         >
-          Roll Dice
-        </button>
-        {diceNumber && (
-          <p className="text-2xl font-semibold mt-4">You rolled a {diceNumber}!</p>
+          <option value="binary">Binary</option>
+          <option value="decimal">Decimal</option>
+          <option value="hex">Hexadecimal</option>
+        </select>
+      </div>
+
+      {/* Input Fields */}
+      <div className="flex flex-col items-center space-y-4 mt-6">
+        {inputType === 'binary' && (
+          <div className="flex flex-col">
+            <label className="text-lg font-semibold">Binary:</label>
+            <input
+              type="text"
+              value={binary}
+              onChange={handleInputChange}
+              className="p-2 border rounded mb-2 w-48 text-black"
+              placeholder="Enter binary"
+            />
+          </div>
+        )}
+
+        {inputType === 'decimal' && (
+          <div className="flex flex-col">
+            <label className="text-lg font-semibold">Decimal:</label>
+            <input
+              type="number"
+              value={decimal}
+              onChange={handleInputChange}
+              className="p-2 border rounded mb-2 w-48 text-black"
+              placeholder="Enter decimal"
+            />
+          </div>
+        )}
+
+        {inputType === 'hex' && (
+          <div className="flex flex-col">
+            <label className="text-lg font-semibold">Hexadecimal:</label>
+            <input
+              type="text"
+              value={hex}
+              onChange={handleInputChange}
+              className="p-2 border rounded mb-2 w-48 text-black"
+              placeholder="Enter hexadecimal"
+            />
+          </div>
         )}
       </div>
 
-      {/* Return link at the bottom */}
-      <Link className="mb-4 text-blue-500 hover:underline" href="/">
+      {/* Result Display */}
+      <div className="mt-6 text-xl font-semibold">
+        <p>Binary: {binary}</p>
+        <p>Decimal: {decimal}</p>
+        <p>Hexadecimal: {hex}</p>
+      </div>
+
+      {/* Return link */}
+      <Link className="mt-4 text-blue-500 hover:underline" href="/">
         <p>Go back to main page</p>
       </Link>
     </div>
