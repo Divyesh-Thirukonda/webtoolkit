@@ -68,8 +68,8 @@ export default function BinaryHexDecimalConverter() {
 
       <div className="flex flex-col items-center space-y-4 mt-6">
         {inputType === 'binary' && (
-          <div className="flex flex-col">
-            <label className="text-lg font-semibold">Binary:</label>
+          <div>
+            <label className="text-lg font-semibold">Binary: </label>
             <input
               type="text"
               value={binary}
@@ -81,8 +81,8 @@ export default function BinaryHexDecimalConverter() {
         )}
 
         {inputType === 'decimal' && (
-          <div className="flex flex-col">
-            <label className="text-lg font-semibold">Decimal:</label>
+          <div>
+            <label className="text-lg font-semibold">Decimal: </label>
             <input
               type="number"
               value={decimal}
@@ -94,8 +94,8 @@ export default function BinaryHexDecimalConverter() {
         )}
 
         {inputType === 'hex' && (
-          <div className="flex flex-col">
-            <label className="text-lg font-semibold">Hexadecimal:</label>
+          <div>
+            <label className="text-lg font-semibold">Hexadecimal: </label>
             <input
               type="text"
               value={hex}
