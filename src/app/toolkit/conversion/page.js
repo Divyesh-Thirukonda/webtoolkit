@@ -1,18 +1,8 @@
 // pages/index.js
 import Link from 'next/link';
 
-export default function Home() {
-  // Define toolkits and their tools programmatically
+export default function Random() {
   const toolkits = [
-    {
-      name: "Random Toolkit",
-      description: "Explore random tools for generating numbers and outcomes.",
-      tools: [
-        { name: "Dice Roller", path: "/toolkit/random/dice-roller" },
-        { name: "Coin Flipper", path: "/toolkit/random/coin-flipper" },
-        { name: "Password Generator", path: "/toolkit/random/password-generator" },
-      ]
-    },
     {
       name: "Conversion Toolkit",
       description: "Convert Units, Percentages, and More!",
@@ -21,23 +11,13 @@ export default function Home() {
         { name: "Growth Rates", path: "/toolkit/conversion/growth-rates" },
         { name: "Binary / Hex / Decimal", path: "/toolkit/conversion/binary-hex-decimal" },
       ]
-    },
-    {
-      name: "Image Toolkit",
-      description: "Explore random tools for generating numbers and outcomes.",
-      tools: [
-        { name: "Image Compressor", path: "/toolkit/image/compressor" },
-        { name: "Image Cropper", path: "/toolkit/image/cropper" },
-        { name: "Image Background Remover", path: "/toolkit/image/background-remover" },
-        { name: "Image Color Picker", path: "/toolkit/image/color-picker" },
-      ]
-    },
+    }
   ];
 
   return (
     <div className="min-h-screen flex items-center justify-center">
       <div className="max-w-2xl w-full px-4 mt-8">
-        <h1 className="text-3xl font-bold mb-8 text-center">Welcome to the Web Toolkit!</h1>
+        <h1 className="text-3xl font-bold mb-8 text-center">Conversion Toolkit</h1>
         
         {/* Render each toolkit card */}
         {toolkits.map((toolkit, index) => (
