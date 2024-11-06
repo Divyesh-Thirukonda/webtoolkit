@@ -2,17 +2,73 @@
 import Link from 'next/link';
 
 export default function Home() {
+  // Define toolkits and their tools programmatically
+  const toolkits = [
+    {
+      name: "Random Toolkit",
+      description: "Explore random tools for generating numbers and outcomes.",
+      tools: [
+        { name: "Dice Roller", path: "/toolkit/random/dice-roller" },
+        { name: "Coin Flipper", path: "/toolkit/random/coin-flipper" },
+        { name: "Password Generator", path: "/toolkit/random/password-generator" },
+        { name: "Random Chooser", path: "/toolkit/random/random-chooser" },
+      ]
+    },
+    {
+      name: "Conversion Toolkit",
+      description: "Convert Units, Percentages, and More!",
+      tools: [
+        { name: "Unit Conversions", path: "/toolkit/conversion/unit-conversion" },
+        { name: "Growth Rates", path: "/toolkit/conversion/growth-rates" },
+        { name: "Binary / Hex / Decimal", path: "/toolkit/conversion/binary-hex-decimal" },
+      ]
+    },
+    {
+      name: "Image Toolkit",
+      description: "Explore random tools for generating numbers and outcomes.",
+      tools: [
+        { name: "Image Resizer", path: "/toolkit/image/resize" },
+        { name: "Image Compressor", path: "/toolkit/image/compressor" },
+        { name: "Image Cropper", path: "/toolkit/image/cropper" },
+        { name: "Image Format Converter", path: "/toolkit/image/format" },
+        { name: "Image Background Remover", path: "/toolkit/image/background-remover" },
+        { name: "Image Color Picker", path: "/toolkit/image/color-picker" },
+        { name: "Image Text Adder", path: "/toolkit/image/text-added" },
+      ]
+    },
+    {
+      name: "Text Toolkit",
+      description: "Convert Units, Percentages, and More!",
+      tools: [
+        { name: "Text Formatting", path: "/toolkit/text/dice-roller" },
+        { name: "Text Compare Differences", path: "/toolkit/text/coin-flipper" },
+        { name: "Text Encryptor", path: "/toolkit/text/coin-flipper" },
+        { name: "Text Decryptor", path: "/toolkit/text/coin-flipper" },
+      ]
+    },
+  ];
+
   return (
     <div className="min-h-screen flex items-center justify-center">
-      <div className="max-w-2xl w-full">
-        <h1 className="text-3xl font-bold mb-6 text-center">Random Generators</h1>
-        <div className="grid gap-4 grid-cols-1 sm:grid-cols-2">
-          <Link className="p-6 bg-slate-900 shadow rounded-lg hover:bg-slate-800 transition" href="random/dice-roller">
-              <h2 className="text-xl font-semibold mb-2">Dice Roller</h2>
-              <p>Roll a dice to get a random number between 1 and 6.</p>
-          </Link>
-          {/* Add other cards for Random Password, Random Number, etc., in a similar way */}
-        </div>
+      <div className="max-w-2xl w-full px-4">
+        <h1 className="text-3xl font-bold mb-8 text-center">Welcome to the Web Toolkit!</h1>
+        
+        {/* Render each toolkit card programmatically */}
+        {toolkits.map((toolkit, index) => (
+          <div key={index} className="p-8 bg-slate-900 shadow-lg rounded-lg mb-8 hover:bg-slate-800 transition">
+            <h2 className="text-2xl font-semibold mb-4">{toolkit.name}</h2>
+            <p className="mb-6">{toolkit.description}</p>
+            
+            {/* Render each tool link within the toolkit */}
+            <div className="flex flex-col gap-4">
+              {toolkit.tools.map((tool, idx) => (
+                <Link key={idx} href={tool.path} className="px-4 py-2 bg-blue-500 text-center rounded-lg font-semibold hover:bg-blue-600 transition">
+                  {tool.name}
+                </Link>
+              ))}
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );
