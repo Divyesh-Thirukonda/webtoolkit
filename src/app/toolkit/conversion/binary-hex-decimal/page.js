@@ -66,7 +66,6 @@ export default function BinaryHexDecimalConverter() {
         </select>
       </div>
 
-      {/* Input Fields */}
       <div className="flex flex-col items-center space-y-4 mt-6">
         {inputType === 'binary' && (
           <div className="flex flex-col">
@@ -108,14 +107,12 @@ export default function BinaryHexDecimalConverter() {
         )}
       </div>
 
-      {/* Result Display */}
       <div className="mt-6 text-xl font-semibold">
         <p>Binary: {binary}</p>
         <p>Decimal: {decimal}</p>
         <p>Hexadecimal: {hex}</p>
       </div>
 
-      {/* Return link */}
       <Link className="mt-4 text-blue-500 hover:underline" href="/">
         <p>Go back to main page</p>
       </Link>
